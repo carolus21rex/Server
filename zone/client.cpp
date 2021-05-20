@@ -478,6 +478,9 @@ Client::~Client() {
 	safe_delete(eqs);
 
 	UninitializeBuffSlots();
+
+	// shared task
+	m_requesting_shared_task = false;
 }
 
 void Client::SendZoneInPackets()
@@ -2415,9 +2418,9 @@ bool Client::CheckIncreaseSkill(EQ::skills::SkillType skillid, Mob *against_who,
 	parse->EventPlayer(EVENT_USE_SKILL, this, buffer, 0);
 	if (against_who) {
 		if (
-			against_who->GetSpecialAbility(IMMUNE_AGGRO) || 
-			against_who->GetSpecialAbility(IMMUNE_AGGRO_CLIENT) || 
-			against_who->IsClient() || 
+			against_who->GetSpecialAbility(IMMUNE_AGGRO) ||
+			against_who->GetSpecialAbility(IMMUNE_AGGRO_CLIENT) ||
+			against_who->IsClient() ||
 			GetLevelCon(against_who->GetLevel()) == CON_GRAY
 		) {
 			//false by default
@@ -9962,7 +9965,7 @@ void Client::MovePCDynamicZone(const std::string& zone_name, int zone_version, b
 	MovePCDynamicZone(zone_id, zone_version, msg_if_invalid);
 }
 
-void Client::Fling(float value, float target_x, float target_y, float target_z, bool ignore_los, bool clipping) {	
+void Client::Fling(float value, float target_x, float target_y, float target_z, bool ignore_los, bool clipping) {
 	BuffFadeByEffect(SE_Levitate);
 	if (CheckLosFN(target_x, target_y, target_z, 6.0f) || ignore_los) {
 		auto outapp_fling = new EQApplicationPacket(OP_Fling, sizeof(fling_struct));
@@ -9971,7 +9974,7 @@ void Client::Fling(float value, float target_x, float target_y, float target_z, 
 			flingTo->collision = 0;
 		else
 			flingTo->collision = -1;
-		
+
 		flingTo->travel_time = -1;
 		flingTo->unk3 = 1;
 		flingTo->disable_fall_damage = 1;
@@ -10026,7 +10029,7 @@ std::vector<int> Client::GetLearnableDisciplines(uint8 min_level, uint8 max_leve
 		if (learnable) {
 			learnable_disciplines.push_back(spell_id);
 		}
-	}		
+	}
 	return learnable_disciplines;
 }
 
@@ -10036,7 +10039,7 @@ std::vector<int> Client::GetLearnedDisciplines() {
 		if (IsValidSpell(m_pp.disciplines.values[index])) {
 			learned_disciplines.push_back(m_pp.disciplines.values[index]);
 		}
-	}		
+	}
 	return learned_disciplines;
 }
 
@@ -10046,7 +10049,7 @@ std::vector<int> Client::GetMemmedSpells() {
 		if (IsValidSpell(m_pp.mem_spells[index])) {
 			memmed_spells.push_back(m_pp.mem_spells[index]);
 		}
-	}		
+	}
 	return memmed_spells;
 }
 
@@ -10092,7 +10095,7 @@ std::vector<int> Client::GetScribeableSpells(uint8 min_level, uint8 max_level) {
 		if (scribeable) {
 			scribeable_spells.push_back(spell_id);
 		}
-	}		
+	}
 	return scribeable_spells;
 }
 
