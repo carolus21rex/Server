@@ -281,7 +281,7 @@ public:
 		entry.heading                 = 0;
 		entry.gender                  = 0;
 		entry.race                    = 0;
-		entry.class_                   = 0;
+		entry.class_                  = 0;
 		entry.level                   = 0;
 		entry.deity                   = 0;
 		entry.birthday                = 0;
@@ -321,7 +321,7 @@ public:
 		entry.sta                     = 0;
 		entry.cha                     = 0;
 		entry.dex                     = 0;
-		entry.int_                     = 0;
+		entry.int_                    = 0;
 		entry.agi                     = 0;
 		entry.wis                     = 0;
 		entry.zone_change_count       = 0;
@@ -418,7 +418,7 @@ public:
 			entry.heading                 = static_cast<float>(atof(row[11]));
 			entry.gender                  = atoi(row[12]);
 			entry.race                    = atoi(row[13]);
-			entry.class_                   = atoi(row[14]);
+			entry.class_                  = atoi(row[14]);
 			entry.level                   = atoi(row[15]);
 			entry.deity                   = atoi(row[16]);
 			entry.birthday                = atoi(row[17]);
@@ -458,7 +458,7 @@ public:
 			entry.sta                     = atoi(row[51]);
 			entry.cha                     = atoi(row[52]);
 			entry.dex                     = atoi(row[53]);
-			entry.int_                     = atoi(row[54]);
+			entry.int_                    = atoi(row[54]);
 			entry.agi                     = atoi(row[55]);
 			entry.wis                     = atoi(row[56]);
 			entry.zone_change_count       = atoi(row[57]);
@@ -941,7 +941,7 @@ public:
 			entry.heading                 = static_cast<float>(atof(row[11]));
 			entry.gender                  = atoi(row[12]);
 			entry.race                    = atoi(row[13]);
-			entry.class_                   = atoi(row[14]);
+			entry.class_                  = atoi(row[14]);
 			entry.level                   = atoi(row[15]);
 			entry.deity                   = atoi(row[16]);
 			entry.birthday                = atoi(row[17]);
@@ -981,7 +981,7 @@ public:
 			entry.sta                     = atoi(row[51]);
 			entry.cha                     = atoi(row[52]);
 			entry.dex                     = atoi(row[53]);
-			entry.int_                     = atoi(row[54]);
+			entry.int_                    = atoi(row[54]);
 			entry.agi                     = atoi(row[55]);
 			entry.wis                     = atoi(row[56]);
 			entry.zone_change_count       = atoi(row[57]);
@@ -1067,7 +1067,7 @@ public:
 			entry.heading                 = static_cast<float>(atof(row[11]));
 			entry.gender                  = atoi(row[12]);
 			entry.race                    = atoi(row[13]);
-			entry.class_                   = atoi(row[14]);
+			entry.class_                  = atoi(row[14]);
 			entry.level                   = atoi(row[15]);
 			entry.deity                   = atoi(row[16]);
 			entry.birthday                = atoi(row[17]);
@@ -1107,7 +1107,7 @@ public:
 			entry.sta                     = atoi(row[51]);
 			entry.cha                     = atoi(row[52]);
 			entry.dex                     = atoi(row[53]);
-			entry.int_                     = atoi(row[54]);
+			entry.int_                    = atoi(row[54]);
 			entry.agi                     = atoi(row[55]);
 			entry.wis                     = atoi(row[56]);
 			entry.zone_change_count       = atoi(row[57]);
