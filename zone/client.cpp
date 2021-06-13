@@ -478,11 +478,6 @@ Client::~Client() {
 	safe_delete(eqs);
 
 	UninitializeBuffSlots();
-
-	// shared task
-	m_requesting_shared_task        = false;
-	m_requested_shared_task_removal = false;
-	m_shared_task_update            = false;
 }
 
 void Client::SendZoneInPackets()
@@ -1417,7 +1412,7 @@ bool Client::UpdateLDoNPoints(uint32 theme_id, int points) {
 					mmc_points += (mir_points + m_pp.ldon_points_mir);
 					mir_points = (0 - m_pp.ldon_points_mir);
 				}
-				
+
 				if(m_pp.ldon_points_mmc < (0 - mmc_points)) {
 					ruj_points += (mmc_points + m_pp.ldon_points_mmc);
 					mmc_points = (0 - m_pp.ldon_points_mmc);

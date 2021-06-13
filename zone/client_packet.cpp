@@ -416,10 +416,10 @@ void MapOpcodes()
 	ConnectedOpcodes[OP_ResetAA] = &Client::Handle_OP_ResetAA;
 
 	// shared tasks
-	ConnectedOpcodes[OP_SharedTaskRemovePlayer] = &Client::Handle_OP_SharedTaskRemovePlayer;
-	ConnectedOpcodes[OP_SharedTaskAddPlayer]    = &Client::Handle_OP_SharedTaskAddPlayer;
-	ConnectedOpcodes[OP_SharedTaskMakeLeader]   = &Client::Handle_OP_SharedTaskMakeLeader;
-	ConnectedOpcodes[OP_SharedTaskInviteResponse]       = &Client::Handle_OP_SharedTaskInviteResponse;
+	ConnectedOpcodes[OP_SharedTaskRemovePlayer]   = &Client::Handle_OP_SharedTaskRemovePlayer;
+	ConnectedOpcodes[OP_SharedTaskAddPlayer]      = &Client::Handle_OP_SharedTaskAddPlayer;
+	ConnectedOpcodes[OP_SharedTaskMakeLeader]     = &Client::Handle_OP_SharedTaskMakeLeader;
+	ConnectedOpcodes[OP_SharedTaskInviteResponse] = &Client::Handle_OP_SharedTaskInviteResponse;
 }
 
 void ClearMappedOpcode(EmuOpcode op)
@@ -15391,6 +15391,7 @@ void Client::Handle_OP_SharedTaskInviteResponse(const EQApplicationPacket *app)
 		r->padding
 	);
 
+	// TODO: Inform original client we rejected if we did not accept
 	if (r->accepted > 0) {
 		LogTasks("[Handle_OP_SharedTaskInviteResponse] Accepted");
 
