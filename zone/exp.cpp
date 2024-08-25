@@ -619,16 +619,16 @@ uint64 Client::AddPowersourceExp(uint64 exp_to_add, int conlevel) {
     int cap = 0;
     switch (conlevel) {
         case ConsiderColor::Red:
-            cap = static_cast<int>(RuleI(Character, FloatingExperiencePercentCapPerRedKill));
+            cap = static_cast<int>(RuleR(Character, FloatingExperiencePercentCapPerRedKill));
             break;
         case ConsiderColor::Yellow:
-            cap = static_cast<int>(RuleI(Character, FloatingExperiencePercentCapPerYellowKill));
+            cap = static_cast<int>(RuleR(Character, FloatingExperiencePercentCapPerYellowKill));
             break;
         case ConsiderColor::White:
-            cap = static_cast<int>(RuleI(Character, FloatingExperiencePercentCapPerWhiteKill));
+            cap = static_cast<int>(RuleR(Character, FloatingExperiencePercentCapPerWhiteKill));
             break;
         case ConsiderColor::DarkBlue:
-            cap = static_cast<int>(RuleI(Character, FloatingExperiencePercentCapPerBlueKill));
+            cap = static_cast<int>(RuleR(Character, FloatingExperiencePercentCapPerBlueKill));
             break;
         case ConsiderColor::LightBlue:
             cap = static_cast<int>(RuleR(Character, FloatingExperiencePercentCapPerLightBlueKill));
